@@ -79,21 +79,29 @@ document.addEventListener('DOMContentLoaded', function () {
     return array;
   }
 
+
   // Insertion Sort Algorithms
 
 
+  
   function insertionSort(array) {
     for (let i = 1; i < array.length; i++) {
       const currentElement = array[i];
       let j = i - 1;
-      while (j >= 0 && parseInt(array[j].style.height) > parseInt(currentElement.style.height)) {
-        array[j + 1].style.height = array[j].style.height;
+      let temp = currentElement;
+      while (j >= 0 && array[j].offsetHeight > temp.offsetHeight) {
+        array[j + 1] = array[j];
         j--;
       }
-      array[j + 1] = currentElement;
+      array[j + 1] = temp;
+      for (let k = j + 1; k < i + 1; k++) {
+        array[k].style.height = array[k].offsetHeight + "px";
+      }
     }
     return array;
   }
+  
+
 
   // Selection Sort Algorithms
 
@@ -112,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     return array;
   }
+
 
   // Merge Sort Algorithms
 
@@ -155,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return result;
   }
+
 
   // Quick Sort Algorithms
 
